@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    console.log(p)
+    }
+
+    // Regular
+    console.log("hello")
+    // Interpolated
+console.log("hello I am a %s string!", "custom")
+    // Styled
+    console.log("%c My name is Mani", "color: red; font-size: 2em")
+
+    // warning!
+    console.warn("%c Alert Alert, there is a warning from system.", "font-size: 2em")
+    
+    // Error :|
+    console.error("%c Alert Alert, there is a warning from system.", "font-size: 1.5em")
+    
+    // Info
+    console.info("%c Alert Alert, there is a warning from system.", "font-size: 1.5em")
+    
+    // Testing
+    const p = document.querySelector("p");
+    console.assert(p.classList.contains("Bhomi"), "That is wrong, bhomi is not there")
+
+    // clearing
+    console.clear(); 
+
+    // Viewing DOM Elements
+    console.dir(p)
+
+    // Grouping together
+    dogs.forEach(dog => {
+        console.groupCollapsed(dog.name)
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        
+        console.groupEnd(dog.name)
+    })
+
+    // counting
+    console.count('wes')
+    console.count('wes')
+    console.count('wes')
+    console.count('wes')
+    console.count('wes')
+    console.count('steve')
+    console.count('steve')
+    console.count('steve')
+    console.count('steve')
+
+    // timing
+    console.time('fetching data');
+fetch ('https://api.github.com/users/wesbos')
+    .then(data => data.json())
+    .then(data => {
+        console.timeEnd('fetching data')
+        console.log(data);
+    })
+
+  </script>
+</body>
+</html>
