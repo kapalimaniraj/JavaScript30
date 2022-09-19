@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+    const body = document.querySelector("body");
+
+    const passed = []
+    const secretCode = "manikapali"
+
+    window.addEventListener('keyup', (e)=>{
+        console.log(e.key);
+        passed.push(e.key);
+        passed.splice(-secretCode.length -1, passed.length - secretCode.length)
+
+        if(passed.join("").includes(secretCode)){
+            console.log("Ding Ding Ding!")
+            body.innerHTML = `<h1>The Secret Key is "${secretCode}"" Congratulations!`
+        }
+
+        console.log(passed);
+    })
+</script>
+</body>
+</html>
